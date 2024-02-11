@@ -219,13 +219,13 @@ button:hover{
         font-family: cursive;}
     
     #logs{
-        font-size:  12px;
+        font-size:  11px;
         display: flex;
         flex-direction: column;
         margin-top: 90px;
         position: absolute;
         z-index: 1;
-        width: 420px;
+        width: 360px;
         height: 210px;
         background-color: rgba(30,30,30,0.96);  
     }
@@ -252,7 +252,7 @@ button:hover{
     #plus_reason{
         display: flex;
         flex-direction: column;
-        width: 420px;
+        width: 360px;
         height: 180px;
         margin-top: 90px;
         color: beige;
@@ -261,7 +261,7 @@ button:hover{
         background-color: rgba(30,30,30,0.96);}
     
     .formal_text{
-        font-size: 15px;
+        font-size: 12px;
     }
     
     #date{width: 180px;}
