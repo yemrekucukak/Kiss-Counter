@@ -33,15 +33,20 @@ fetch("/api")
   function close_plus_screen(){increment_screen.style.visibility = "hidden";}
 
   function positive_submit(){
-    
+
+    let reason_to_send = reasonInput.value;
+    let date_to_send = dateInput.value;
+    if(reason_to_send === "" || reason_to_send === " "){reason_to_send = main_reason;}
+    if(date_to_send === ""){date_to_send = final_main_date;}
+
     fetch('/api/submit', {
         method: 'POST', 
         headers: {
           'Content-Type': 'application/json', 
         },
         body: JSON.stringify({
-          reason: reasonInput.value,
-          date: dateInput.value
+          reason: reason_to_send,
+          date: date_to_send
         })
       })
 
@@ -98,8 +103,10 @@ function show_logs(){
       let updated_date = "Tarih: " + day + '/' + month + '/' + year;
       let current_reason = old_data[i].toString().replace('{', '').replace("reason", "Sebep ").replaceAll('"', '').replace(' ', '');
       let blank_space = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp'
-  
-      actual_logs.innerHTML = actual_logs.innerHTML + (i/2 + 1).toString() + " ==> " + updated_date + blank_space + current_reason +"<br>" ;}
+      let kiss_number = (i/2 + 1).toString();
+      if ((i/2 + 1) < 10){kiss_number = "0" + (i/2 + 1).toString();}
+
+      actual_logs.innerHTML = actual_logs.innerHTML + kiss_number + " ==> " + updated_date + blank_space + current_reason +"<br>" ;}
   })
   .catch((error) => console.error("Error:", error));
 }
