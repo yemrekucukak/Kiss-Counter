@@ -63,6 +63,8 @@ fetch("/api")
 
 
   function donate(){
+    console.log("donate is clicked and main reason is " + main_reason);
+    console.log("donate is clicked and main date is " + final_main_date);
     fetch('/api/submit', {
       method: 'POST', 
       headers: {
@@ -94,20 +96,21 @@ function show_logs(){
     console.log(data)
     let old_data = data.count.split("\n").slice(1);
     old_data = "" + old_data;
+    console.log("all the data is here: " + old_data);
     old_data = old_data.split(",");
+    console.log("all the data is here but in list form: " + old_data);
     //old_data = old_data.toString().split(",");
     for (let i=0; i<old_data.length; i = i + 2){
       let current_date = "" + old_data[i+1];
-      console.log(current_date);
       current_date = current_date.replace('}', '').replace('date', '').replaceAll('"', '').replace(':', '');
       let date_elements = current_date.split('-');
       let day = date_elements[2];
       let month = date_elements[1];
       let year = date_elements[0];
       let updated_date = "Tarih: " + day + '/' + month + '/' + year;
-      console.log(updated_date);
+    
       let current_reason = "" + old_data[i];
-      console.log(current_reason);
+    
       current_reason = current_reason.replace('{', '').replace("reason", "Sebep ").replaceAll('"', '').replace(' ', '');
       let blank_space = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp'
       let kiss_number = (i/2 + 1).toString();
