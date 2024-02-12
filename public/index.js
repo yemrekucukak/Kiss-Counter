@@ -1,3 +1,14 @@
+  let current_date = new Date();
+  let main_date = current_date.getFullYear() + "-" + Number(Number(current_date.getMonth()) + 1) + "-" + current_date.getDate() ;
+  let main_reason = "mırıl mırıl";
+  let current_date_elements = main_date.split('-');
+      let updated_day = current_date_elements[2];
+      let updated_month = current_date_elements[1];
+      let updated_year = current_date_elements[0];
+      if(updated_month < 10){updated_month = '0' + updated_month.toString()}
+      if(updated_day < 10){updated_day = '0' + updated_day.toString()}
+  let final_main_date = updated_year + "-" + updated_month + "-" + updated_day
+
 fetch("/api")
   .then((response) => response.json())
   .then((data) => {
@@ -12,17 +23,6 @@ fetch("/api")
   let increment_screen = document.getElementById("plus_reason");
   log_history.style.visibility  = "hidden";
   increment_screen.style.visibility = "hidden";
-
-  let current_date = new Date();
-  let main_date = current_date.getFullYear() + "-" + Number(Number(current_date.getMonth()) + 1) + "-" + current_date.getDate() ;
-  let main_reason = "mırıl mırıl";
-  let current_date_elements = main_date.split('-');
-      let updated_day = current_date_elements[2];
-      let updated_month = current_date_elements[1];
-      let updated_year = current_date_elements[0];
-      if(updated_month < 10){updated_month = '0' + updated_month.toString()}
-      if(updated_day < 10){updated_day = '0' + updated_day.toString()}
-  let final_main_date = updated_year + "-" + updated_month + "-" + updated_day
 
 
   const increment_button = document.getElementById("increment");
@@ -45,8 +45,8 @@ fetch("/api")
           'Content-Type': 'application/json', 
         },
         body: JSON.stringify({
-          reason: reason_to_send,
-          date: date_to_send
+          reason: reasonInput.value,
+          date: dateInput.value
         })
       })
 
