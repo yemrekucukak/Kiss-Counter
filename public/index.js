@@ -96,9 +96,9 @@ function show_logs(){
     console.log(data)
     let old_data = data.count.split("\n").slice(1);
     old_data = "" + old_data;
-    console.log("all the data is here: " + old_data);
+    //console.log("all the data is here: " + old_data);
     old_data = old_data.split(",");
-    console.log("all the data is here but in list form: " + old_data);
+    //console.log("all the data is here but in list form: " + old_data);
     //old_data = old_data.toString().split(",");
     for (let i=0; i<old_data.length; i = i + 2){
       let current_date = "" + old_data[i+1];
