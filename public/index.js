@@ -97,13 +97,15 @@ function show_logs(){
     old_data = old_data.split(",");
     //old_data = old_data.toString().split(",");
     for (let i=0; i<old_data.length; i = i + 2){
-      let current_date = old_data[i+1].toString().replace('}', '').replace('date', '').replaceAll('"', '').replace(':', '');
+      let current_date = "" + old_data[i+1];
+      current_date = current_date.replace('}', '').replace('date', '').replaceAll('"', '').replace(':', '');
       let date_elements = current_date.split('-');
       let day = date_elements[2];
       let month = date_elements[1];
       let year = date_elements[0];
       let updated_date = "Tarih: " + day + '/' + month + '/' + year;
-      let current_reason = old_data[i].toString().replace('{', '').replace("reason", "Sebep ").replaceAll('"', '').replace(' ', '');
+      let current_reason = "" + old_data[i];
+      current_reason = current_reason.replace('{', '').replace("reason", "Sebep ").replaceAll('"', '').replace(' ', '');
       let blank_space = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp'
       let kiss_number = (i/2 + 1).toString();
       if ((i/2 + 1) < 10){kiss_number = "0" + (i/2 + 1).toString();}
