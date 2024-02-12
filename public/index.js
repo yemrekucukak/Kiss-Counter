@@ -93,7 +93,9 @@ function show_logs(){
   .then((data) => {
     console.log(data)
     let old_data = data.count.split("\n").slice(1);
-    old_data = old_data.toString().split(",");
+    old_data = "" + old_data;
+    old_data = old_data.split(",");
+    //old_data = old_data.toString().split(",");
     for (let i=0; i<old_data.length; i = i + 2){
       let current_date = old_data[i+1].toString().replace('}', '').replace('date', '').replaceAll('"', '').replace(':', '');
       let date_elements = current_date.split('-');
